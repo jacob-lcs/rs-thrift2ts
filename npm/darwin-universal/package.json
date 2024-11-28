@@ -1,0 +1,15 @@
+{
+  "name": "rs-thrift2ts-darwin-universal",
+  "version": "0.0.0",
+  "os": [
+    "darwin"
+  ],
+  "main": "rs-thrift2ts.darwin-universal.node",
+  "files": [
+    "rs-thrift2ts.darwin-universal.node"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  }
+}
