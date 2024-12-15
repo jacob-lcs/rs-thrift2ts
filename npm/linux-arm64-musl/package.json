@@ -1,6 +1,6 @@
 {
   "name": "rs-thrift2ts-linux-arm64-musl",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "os": [
     "linux"
   ],
@@ -11,10 +11,24 @@
   "files": [
     "rs-thrift2ts.linux-arm64-musl.node"
   ],
+  "description": "The thrift to typescript tool, written in rust.",
+  "keywords": [
+    "napi-rs",
+    "NAPI",
+    "N-API",
+    "Rust",
+    "node-addon",
+    "node-addon-api"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">= 10"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": "https://github.com/jacob-lcs/rs-thrift2ts",
   "libc": [
     "musl"
   ]
