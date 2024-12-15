@@ -1,6 +1,6 @@
 {
   "name": "rs-thrift2ts",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "The thrift to typescript tool, written in rust.",
   "main": "index.js",
   "repository": "https://github.com/jacob-lcs/rs-thrift2ts",
@@ -104,5 +104,20 @@
     "singleQuote": true,
     "arrowParens": "always"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "optionalDependencies": {
+    "rs-thrift2ts-win32-x64-msvc": "0.0.1",
+    "rs-thrift2ts-darwin-x64": "0.0.1",
+    "rs-thrift2ts-linux-x64-gnu": "0.0.1",
+    "rs-thrift2ts-linux-x64-musl": "0.0.1",
+    "rs-thrift2ts-linux-arm64-gnu": "0.0.1",
+    "rs-thrift2ts-win32-ia32-msvc": "0.0.1",
+    "rs-thrift2ts-linux-arm-gnueabihf": "0.0.1",
+    "rs-thrift2ts-darwin-arm64": "0.0.1",
+    "rs-thrift2ts-android-arm64": "0.0.1",
+    "rs-thrift2ts-freebsd-x64": "0.0.1",
+    "rs-thrift2ts-linux-arm64-musl": "0.0.1",
+    "rs-thrift2ts-win32-arm64-msvc": "0.0.1",
+    "rs-thrift2ts-android-arm-eabi": "0.0.1"
+  }
 }

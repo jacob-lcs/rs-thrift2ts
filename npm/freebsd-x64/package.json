@@ -1,6 +1,6 @@
 {
   "name": "rs-thrift2ts-freebsd-x64",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "os": [
     "freebsd"
   ],
