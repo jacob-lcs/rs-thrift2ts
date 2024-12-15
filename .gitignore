@@ -127,6 +127,3 @@ Cargo.lock
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-index.js
-index.d.ts
