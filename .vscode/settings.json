@@ -1,5 +1,10 @@
 {
-  "cSpell.words": ["napi", "pilota"],
+  "cSpell.words": [
+    "cdylib",
+    "napi",
+    "pilota",
+    "walkdir"
+  ],
   "rust-analyzer.procMacro.ignored": {
     "napi-derive": ["napi"]
   }
