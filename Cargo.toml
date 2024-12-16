@@ -10,8 +10,9 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi        = "2"
-napi-derive = "2"
+napi                   = "2"
+napi-derive            = "2"
+"pilota-thrift-parser" = "0.11.5"
 
 [build-dependencies]
 napi-build = "2"
