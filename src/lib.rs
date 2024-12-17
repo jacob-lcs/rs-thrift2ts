@@ -64,7 +64,7 @@ fn process_thrift_file(path: &Path) -> Result<()> {
 }
 
 fn convert_thrift_to_ts(content: &str) -> Result<String> {
-  let mut ast = thrift_parser::File::parse(&content).unwrap().1;
+  // let mut ast = thrift_parser::File::parse(&content).unwrap().1;
   // 实现 thrift 到 TypeScript 的转换逻辑
   todo!()
 }
