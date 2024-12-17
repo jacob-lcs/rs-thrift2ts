@@ -53,11 +53,11 @@ fn process_thrift_file(path: &Path) -> Result<()> {
   // 2. 转换为 TypeScript
   let ts_content = convert_thrift_to_ts(&content)?;
 
-  // 3. 生成输出路径
-  let ts_path = path.with_extension("ts");
+  // // 3. 生成输出路径
+  // let ts_path = path.with_extension("ts");
 
-  // 4. 写入文件
-  std::fs::write(ts_path, ts_content)?;
+  // // 4. 写入文件
+  // std::fs::write(ts_path, ts_content)?;
 
   println!("Processed: {}", path.display());
   Ok(())
