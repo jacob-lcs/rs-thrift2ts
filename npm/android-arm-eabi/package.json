@@ -1,5 +1,5 @@
 {
-  "name": "rs-thrift2ts-android-arm-eabi",
+  "name": "rs-thrift-gen-ts-android-arm-eabi",
   "version": "0.0.1",
   "os": [
     "android"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm"
   ],
-  "main": "rs-thrift2ts.android-arm-eabi.node",
+  "main": "rs-thrift-gen-ts.android-arm-eabi.node",
   "files": [
-    "rs-thrift2ts.android-arm-eabi.node"
+    "rs-thrift-gen-ts.android-arm-eabi.node"
   ],
   "description": "The thrift to typescript tool, written in rust.",
   "keywords": [

@@ -1,3 +1,3 @@
-# `rs-thrift2ts-win32-ia32-msvc`
+# `rs-thrift-gen-ts-win32-ia32-msvc`
 
-This is the **i686-pc-windows-msvc** binary for `rs-thrift2ts`
+This is the **i686-pc-windows-msvc** binary for `rs-thrift-gen-ts`

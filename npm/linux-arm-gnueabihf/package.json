@@ -1,5 +1,5 @@
 {
-  "name": "rs-thrift2ts-linux-arm-gnueabihf",
+  "name": "rs-thrift-gen-ts-linux-arm-gnueabihf",
   "version": "0.0.1",
   "os": [
     "linux"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm"
   ],
-  "main": "rs-thrift2ts.linux-arm-gnueabihf.node",
+  "main": "rs-thrift-gen-ts.linux-arm-gnueabihf.node",
   "files": [
-    "rs-thrift2ts.linux-arm-gnueabihf.node"
+    "rs-thrift-gen-ts.linux-arm-gnueabihf.node"
   ],
   "description": "The thrift to typescript tool, written in rust.",
   "keywords": [

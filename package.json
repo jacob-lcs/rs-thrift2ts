@@ -1,5 +1,5 @@
 {
-  "name": "rs-thrift2ts",
+  "name": "rs-thrift-gen-ts",
   "version": "0.0.1",
   "description": "The thrift to typescript tool, written in rust.",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "index.js"
   ],
   "napi": {
-    "name": "rs-thrift2ts",
+    "name": "rs-thrift-gen-ts",
     "triples": {
       "defaults": true,
       "additional": [

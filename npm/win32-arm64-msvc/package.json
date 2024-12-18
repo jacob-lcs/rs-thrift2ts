@@ -1,5 +1,5 @@
 {
-  "name": "rs-thrift2ts-win32-arm64-msvc",
+  "name": "rs-thrift-gen-ts-win32-arm64-msvc",
   "version": "0.0.1",
   "os": [
     "win32"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm64"
   ],
-  "main": "rs-thrift2ts.win32-arm64-msvc.node",
+  "main": "rs-thrift-gen-ts.win32-arm64-msvc.node",
   "files": [
-    "rs-thrift2ts.win32-arm64-msvc.node"
+    "rs-thrift-gen-ts.win32-arm64-msvc.node"
   ],
   "description": "The thrift to typescript tool, written in rust.",
   "keywords": [

@@ -1,5 +1,5 @@
 {
-  "name": "rs-thrift2ts-darwin-arm64",
+  "name": "rs-thrift-gen-ts-darwin-arm64",
   "version": "0.0.1",
   "os": [
     "darwin"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm64"
   ],
-  "main": "rs-thrift2ts.darwin-arm64.node",
+  "main": "rs-thrift-gen-ts.darwin-arm64.node",
   "files": [
-    "rs-thrift2ts.darwin-arm64.node"
+    "rs-thrift-gen-ts.darwin-arm64.node"
   ],
   "description": "The thrift to typescript tool, written in rust.",
   "keywords": [
