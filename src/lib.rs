@@ -1,9 +1,8 @@
 #![deny(clippy::all)]
 
-use anyhow::Result;
+mod generator;
+
 use napi_derive::napi;
-use pilota_thrift_parser as thrift_parser;
-use pilota_thrift_parser::parser::Parser as _;
 use rayon::prelude::*;
 use std::path::Path;
 use walkdir::WalkDir;
@@ -43,28 +42,17 @@ pub fn gen(options: ThriftCodeGenOptions) {
   // 并行处理所有文件
   thrift_files
     .par_iter()
-    .try_for_each(|path| process_thrift_file(path));
+    .try_for_each(|path| process_thrift_file(path).map_err(|e| eprintln!("Error processing file: {}", e)));
 }
 
-fn process_thrift_file(path: &Path) -> Result<()> {
+fn process_thrift_file(path: &Path) -> Result<(), Box<dyn std::error::Error>> {
   // 1. 读取 thrift 文件内容
   let content = std::fs::read_to_string(path)?;
 
   // 2. 转换为 TypeScript
-  let ts_content = convert_thrift_to_ts(&content)?;
+  let ts_content = generator::ts_generator::convert_thrift_to_ts(&content);
+  let ts_path = path.with_extension("ts");
+  std::fs::write(ts_path, ts_content)?;
 
-  // // 3. 生成输出路径
-  // let ts_path = path.with_extension("ts");
-
-  // // 4. 写入文件
-  // std::fs::write(ts_path, ts_content)?;
-
-  println!("Processed: {}", path.display());
   Ok(())
-}
-
-fn convert_thrift_to_ts(content: &str) -> Result<String> {
-  // let mut ast = thrift_parser::File::parse(&content).unwrap().1;
-  // 实现 thrift 到 TypeScript 的转换逻辑
-  todo!()
 }
