@@ -1,19 +1,19 @@
 import { Bench } from 'tinybench'
+import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-import { plus100 } from '../index.js'
+import { gen } from '../index.js'
 
-function add(a: number) {
-  return a + 100
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const b = new Bench()
 
-b.add('Native a + 100', () => {
-  plus100(10)
-})
-
-b.add('JavaScript a + 100', () => {
-  add(10)
+b.add('Gen ts using rust', () => {
+  gen({
+    path: path.resolve(__dirname, '../__test__/idl'),
+  })
 })
 
 await b.run()
