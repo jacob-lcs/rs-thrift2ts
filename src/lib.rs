@@ -2,6 +2,7 @@
 
 mod ts_generator;
 mod templates;
+mod utils;
 
 use napi_derive::napi;
 use rayon::prelude::*;
