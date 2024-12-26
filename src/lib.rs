@@ -1,7 +1,7 @@
 #![deny(clippy::all)]
 
-mod ts_generator;
 mod templates;
+mod ts_generator;
 mod utils;
 
 use napi_derive::napi;
@@ -66,12 +66,16 @@ pub fn gen(options: ThriftCodeGenOptions) {
     .collect();
 
   // 并行处理所有文件
-  let _ = thrift_files
-    .par_iter()
-    .try_for_each(|path| process_thrift_file(path, &processed_options).map_err(|e| eprintln!("Error processing file: {}", e)));
+  let _ = thrift_files.par_iter().try_for_each(|path| {
+    process_thrift_file(path, &processed_options)
+      .map_err(|e| eprintln!("Error processing file: {}", e))
+  });
 }
 
-fn process_thrift_file(path: &Path, options: &ThriftCodeGenOptionsRequired) -> Result<(), Box<dyn std::error::Error>> {
+fn process_thrift_file(
+  path: &Path,
+  options: &ThriftCodeGenOptionsRequired,
+) -> Result<(), Box<dyn std::error::Error>> {
   // 1. 读取 thrift 文件内容
   let content = std::fs::read_to_string(path)?;
 

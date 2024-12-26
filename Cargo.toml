@@ -10,13 +10,13 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi                   = "2"
-napi-derive            = "2"
+anyhow               = "1"
+log                  = "0.4.22"
+napi                 = "2"
+napi-derive          = "2"
 pilota-thrift-parser = "0.11"
-walkdir = "2"
-rayon = "1"
-anyhow = "1"
-log = "0.4.22"
+rayon                = "1"
+walkdir              = "2"
 
 [build-dependencies]
 napi-build = "2"

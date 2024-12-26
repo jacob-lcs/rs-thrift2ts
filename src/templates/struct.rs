@@ -1,5 +1,5 @@
-use pilota_thrift_parser::Struct;
 use crate::utils::r#type::type_to_ts;
+use pilota_thrift_parser::Struct;
 
 pub fn gen(content: &Struct) -> String {
   let mut ts_code = String::new();
