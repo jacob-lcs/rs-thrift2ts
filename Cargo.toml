@@ -16,6 +16,7 @@ pilota-thrift-parser = "0.11"
 walkdir = "2"
 rayon = "1"
 anyhow = "1"
+log = "0.4.22"
 
 [build-dependencies]
 napi-build = "2"
