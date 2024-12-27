@@ -1,8 +1,5 @@
-use log::info;
 use pilota_thrift_parser::Namespace;
 
 pub fn gen(content: &Namespace) -> String {
-  info!("gen Namespace: {:?}", content);
-
-  String::from("")
+  format!("// Namespace: {:?}, scope: {:?}\n", content.name.segments.iter(), content.scope)
 }

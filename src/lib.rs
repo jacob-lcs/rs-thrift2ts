@@ -80,8 +80,8 @@ fn process_thrift_file(
   let content = std::fs::read_to_string(path)?;
 
   // 2. 转换为 TypeScript
-  let ts_content = ts_generator::convert_thrift_to_ts(&content, options);
-  let ts_path: std::path::PathBuf = path.with_extension("ts");
+  let ts_content = ts_generator::convert_thrift_to_ts(&content);
+  let ts_path: std::path::PathBuf = path.with_extension(&options.ext_name);
   std::fs::write(ts_path, ts_content)?;
 
   Ok(())

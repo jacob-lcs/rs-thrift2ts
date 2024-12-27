@@ -1,8 +1,5 @@
-use log::info;
 use pilota_thrift_parser::CppInclude;
 
 pub fn gen(content: &CppInclude) -> String {
-  info!("gen CppInclude: {:?}", content.0);
-
-  String::from("\n")
+  format!("// CppInclude: {}\n", content.0.0) 
 }

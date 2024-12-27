@@ -1,24 +1,23 @@
 use crate::templates;
-use crate::ThriftCodeGenOptionsRequired;
 use pilota_thrift_parser as thrift_parser;
 use pilota_thrift_parser::parser::Parser as _;
 use pilota_thrift_parser::File;
 
-pub fn convert_thrift_to_ts(content: &str, options: &ThriftCodeGenOptionsRequired) -> String {
+pub fn convert_thrift_to_ts(content: &str) -> String {
   // 将 Thrift 内容解析为 AST
   let ast = thrift_parser::File::parse(content).unwrap().1;
 
   // 将 AST 转换为 TypeScript
-  generate_ts_from_ast(&ast, options)
+  generate_ts_from_ast(&ast)
 }
 
-fn generate_ts_from_ast(ast: &File, options: &ThriftCodeGenOptionsRequired) -> String {
+fn generate_ts_from_ast(ast: &File) -> String {
   let mut ts_code = String::new();
 
   for item in &ast.items {
     match item {
       thrift_parser::Item::Include(include) => {
-        ts_code.push_str(&templates::include::gen(include, &options.ext_name));
+        ts_code.push_str(&templates::include::gen(include));
       }
       thrift_parser::Item::CppInclude(cpp_include) => {
         ts_code.push_str(&templates::cpp_include::gen(cpp_include));
