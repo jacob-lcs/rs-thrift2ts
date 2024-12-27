@@ -18,5 +18,5 @@ pub fn gen(content: &Service) -> String {
     ));
   }
   ts_code.push_str("}\n");
-  return ts_code;
+  ts_code
 }

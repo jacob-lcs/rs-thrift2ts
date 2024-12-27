@@ -8,5 +8,5 @@ pub fn gen(content: &Union) -> String {
     ts_code.push_str(&format!("  | {{ {:?}: {:?} }}\n", field.name, field.ty));
   }
   ts_code.push_str(";\n");
-  return ts_code;
+  ts_code
 }

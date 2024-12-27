@@ -7,9 +7,9 @@ pub fn gen(content: &Include, ext_name: &String) -> String {
 
   let file_name = path.file_stem().unwrap();
 
-  return format!(
+  format!(
     "import {} from '{}'; \n",
     file_name.to_string_lossy(),
     path.display()
-  );
+  )
 }

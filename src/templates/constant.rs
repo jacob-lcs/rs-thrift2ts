@@ -6,5 +6,5 @@ pub fn gen(content: &Constant) -> String {
     "const {:?}: {:?} = {:?};\n",
     content.name, content.r#type, content.value
   ));
-  return ts_code;
+  ts_code
 }
