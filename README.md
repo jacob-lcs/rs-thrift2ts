@@ -1,73 +1,68 @@
-# `@napi-rs/package-template`
+# `rs-thrift-gen-ts`
 
-![https://github.com/napi-rs/package-template/actions](https://github.com/napi-rs/package-template/workflows/CI/badge.svg)
+![https://github.com/jacob-lcs/rs-thrift2ts/actions](https://github.com/jacob-lcs/rs-thrift2ts/workflows/CI/badge.svg)
 
-> Template project for writing node packages with napi-rs.
+The thrift to typescript tool, written in rust.
 
 # Usage
 
-1. Click **Use this template**.
-2. **Clone** your project.
-3. Run `yarn install` to install dependencies.
-4. Run `npx napi rename -n [name]` command under the project folder to rename your package.
-
-## Install this test package
+## Install package
 
 ```
-yarn add @napi-rs/package-template
+# yarn
+yarn add rs-thrift-gen-ts
+
+# npm
+npm install rs-thrift-gen-ts
+
+# pnpm
+pnpm add rs-thrift-gen-ts
 ```
 
-## Support matrix
+## Generate ts code
 
-### Operating Systems
+```javascript
+const { gen } = require('rs-thrift-gen-ts')
 
-|                  | node14 | node16 | node18 |
-| ---------------- | ------ | ------ | ------ |
-| Windows x64      | ✓      | ✓      | ✓      |
-| Windows x32      | ✓      | ✓      | ✓      |
-| Windows arm64    | ✓      | ✓      | ✓      |
-| macOS x64        | ✓      | ✓      | ✓      |
-| macOS arm64      | ✓      | ✓      | ✓      |
-| Linux x64 gnu    | ✓      | ✓      | ✓      |
-| Linux x64 musl   | ✓      | ✓      | ✓      |
-| Linux arm gnu    | ✓      | ✓      | ✓      |
-| Linux arm64 gnu  | ✓      | ✓      | ✓      |
-| Linux arm64 musl | ✓      | ✓      | ✓      |
-| Android arm64    | ✓      | ✓      | ✓      |
-| Android armv7    | ✓      | ✓      | ✓      |
-| FreeBSD x64      | ✓      | ✓      | ✓      |
+gen({
+  path: 'path/to/thrift/file.thrift',
+})
+```
 
-## Ability
+## Params
 
-### Build
+| Parameter         | Type             | Default Value | Description                                                                                                                   |
+| ----------------- | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `ext_name`        | `Option<String>` | `.ts`         | The file extension for the generated file. The default value is `.ts`.                                                        |
+| `map_as_object`   | `Option<bool>`   | `false`       | Whether to convert the `map` data type in Thrift to `Object` in JavaScript instead of `Map`. The default value is `false`.    |
+| `set_as_array`    | `Option<bool>`   | `false`       | Whether to convert the `set` data type in Thrift to `Array` in JavaScript instead of `Set`. The default value is `false`.     |
+| `int64_as_string` | `Option<bool>`   | `false`       | Whether to convert the `i64` data type in Thrift to `string` in JavaScript instead of `bigint`. The default value is `false`. |
+| `int64_as_number` | `Option<bool>`   | `false`       | Whether to convert the `i64` data type in Thrift to `number` in JavaScript instead of `bigint`. The default value is `false`. |
+| `path`            | `String`         | None          | The path to the Thrift file to be parsed.                                                                                     |
 
-After `yarn build/npm run build` command, you can see `package-template.[darwin|win32|linux].node` file in project root. This is the native addon built from [lib.rs](./src/lib.rs).
+## Support Operating Systems
 
-### Test
-
-With [ava](https://github.com/avajs/ava), run `yarn test/npm run test` to testing native addon. You can also switch to another testing framework if you want.
-
-### CI
-
-With GitHub Actions, each commit and pull request will be built and tested automatically in [`node@14`, `node@16`, `@node18`] x [`macOS`, `Linux`, `Windows`] matrix. You will never be afraid of the native addon broken in these platforms.
-
-### Release
-
-Release native package is very difficult in old days. Native packages may ask developers who use it to install `build toolchain` like `gcc/llvm`, `node-gyp` or something more.
-
-With `GitHub actions`, we can easily prebuild a `binary` for major platforms. And with `N-API`, we should never be afraid of **ABI Compatible**.
-
-The other problem is how to deliver prebuild `binary` to users. Downloading it in `postinstall` script is a common way that most packages do it right now. The problem with this solution is it introduced many other packages to download binary that has not been used by `runtime codes`. The other problem is some users may not easily download the binary from `GitHub/CDN` if they are behind a private network (But in most cases, they have a private NPM mirror).
-
-In this package, we choose a better way to solve this problem. We release different `npm packages` for different platforms. And add it to `optionalDependencies` before releasing the `Major` package to npm.
-
-`NPM` will choose which native package should download from `registry` automatically. You can see [npm](./npm) dir for details. And you can also run `yarn add @napi-rs/package-template` to see how it works.
+|                  | node14             | node16             | node18             |
+| ---------------- | ------------------ | ------------------ | ------------------ |
+| Windows x64      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Windows x32      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Windows arm64    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| macOS x64        | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| macOS arm64      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Linux x64 gnu    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Linux x64 musl   | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Linux arm gnu    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Linux arm64 gnu  | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Linux arm64 musl | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Android arm64    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Android armv7    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| FreeBSD x64      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Develop requirements
 
 - Install the latest `Rust`
-- Install `Node.js@10+` which fully supported `Node-API`
-- Install `yarn@1.x`
+- Install `Node.js@16+`
+- Enable corepack with `corepack enable`
 
 ## Test in local
 
@@ -87,19 +82,3 @@ $ ava --verbose
   2 tests passed
 ✨  Done in 1.12s.
 ```
-
-## Release package
-
-Ensure you have set your **NPM_TOKEN** in the `GitHub` project setting.
-
-In `Settings -> Secrets`, add **NPM_TOKEN** into it.
-
-When you want to release the package:
-
-```
-npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
-
-git push
-```
-
-GitHub actions will do the rest job for you.
