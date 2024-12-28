@@ -11,6 +11,9 @@ pub fn type_to_ts(ty: &Type) -> String {
     Ty::List { value, .. } => format!("Array<{}>", type_to_ts(value)),
     Ty::Set { value, .. } => format!("Set<{}>", type_to_ts(value)),
     Ty::Map { key, value, .. } => format!("Map<{}, {}>", type_to_ts(key), type_to_ts(value)),
-    Ty::Path(_) => "any".to_string(), // 需要根据具体的 Path 类型定义进行修改
+    Ty::Path(path) => {
+      let segments = path.segments.iter().map(|s| s.0.clone()).collect::<Vec<_>>();
+      format!("{}", segments.join("."))
+    }
   }
 }
