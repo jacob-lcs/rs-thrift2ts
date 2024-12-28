@@ -10,7 +10,7 @@ pub fn gen(content: &Service) -> String {
   for function in &content.functions {
     writeln!(
       &mut ts_code,
-      "  {}({}): {};",
+      "  {}({}): Promise<{}>;",
       function.name.0,
       function
         .arguments
@@ -18,7 +18,7 @@ pub fn gen(content: &Service) -> String {
         .map(|p| format!("{}: {}", p.name.0, type_to_ts(&p.ty)))
         .collect::<Vec<_>>()
         .join(", "),
-      format!("Promise<{}>", type_to_ts(&function.result_type)),
+      type_to_ts(&function.result_type),
     )
     .unwrap();
   }

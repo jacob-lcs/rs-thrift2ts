@@ -1,5 +1,6 @@
 use crate::utils::r#type::type_to_ts;
 use pilota_thrift_parser::{Attribute, Struct};
+use std::fmt::Write;
 
 pub fn gen(content: &Struct) -> String {
   let fields_count = content.fields.len();
@@ -7,8 +8,7 @@ pub fn gen(content: &Struct) -> String {
 
   let mut ts_code = String::with_capacity(estimated_size);
 
-  use std::fmt::Write;
-  write!(&mut ts_code, "export interface {} {{\n", content.name.0).unwrap();
+  writeln!(&mut ts_code, "export interface {} {{", content.name.0).unwrap();
 
   for field in &content.fields {
     match field.attribute {

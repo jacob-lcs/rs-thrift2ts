@@ -12,8 +12,12 @@ pub fn type_to_ts(ty: &Type) -> String {
     Ty::Set { value, .. } => format!("Set<{}>", type_to_ts(value)),
     Ty::Map { key, value, .. } => format!("Map<{}, {}>", type_to_ts(key), type_to_ts(value)),
     Ty::Path(path) => {
-      let segments = path.segments.iter().map(|s| s.0.clone()).collect::<Vec<_>>();
-      format!("{}", segments.join("."))
+      let segments = path
+        .segments
+        .iter()
+        .map(|s| s.0.clone())
+        .collect::<Vec<_>>();
+      segments.join(".").to_string()
     }
   }
 }
